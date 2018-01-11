@@ -1,5 +1,5 @@
 #!/bin/bash
-# Program untuk membatasi jumlah login user dropbear
+
 PARAM=$1
 
 echo -n > /tmp/pid2
