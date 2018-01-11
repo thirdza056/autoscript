@@ -1,5 +1,4 @@
 #!/bin/bash
-#About this script
 
 clear
 echo -e "================================================="
