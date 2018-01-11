@@ -1,15 +1,15 @@
 #while :
  # do 
-  #./userlimit.sh 1 
+  #userlimit 1 
   #sleep 5 
   #done
 while :
   do
-  ./userlimit.sh 2
+  userlimit 2
   sleep 60 
   done
 while :
   do
-  ./userexpired.sh
+  userexpired
   sleep 36000
   done
