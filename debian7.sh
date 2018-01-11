@@ -160,6 +160,8 @@ wget -O usernew "http://vira.cf/usernew.sh"
 wget -O trial "http://vira.cf/trial.sh"
 wget -O hapus "http://vira.cf/hapus.sh"
 wget -O cek "http://vira.cf/user-login.sh"
+wget -O autokill "https://raw.githubusercontent.com/cyber4rt/debian7/master/autokill.sh"
+wget -O userexpired "https://raw.githubusercontent.com/cyber4rt/debian7/master/userexpired.sh"
 wget -O userlimit "https://raw.githubusercontent.com/cyber4rt/debian7/master/userlimit.sh"
 wget -O userlimitssh "https://raw.githubusercontent.com/cyber4rt/debian7/master/userlimitssh.sh"
 wget -O member "http://vira.cf/user-list.sh"
@@ -175,12 +177,14 @@ chmod +x usernew
 chmod +x trial
 chmod +x hapus
 chmod +x cek
+chmod +x autokill
 chmod +x member
 chmod +x resvis
 chmod +x speedtest
 chmod +x info
 chmod +x userlimit
-chmid +x userlimitssh
+chmod +x userlimitssh
+chmod +x userexpired
 chmod +x about
 
 # finishing
@@ -213,19 +217,21 @@ echo "nginx    : 81"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Script"  | tee -a log-install.txt
 echo "------"  | tee -a log-install.txt
-echo "menu (Menampilkan daftar perintah yang tersedia)"  | tee -a log-install.txt
-echo "usernew (Membuat Akun SSH)"  | tee -a log-install.txt
-echo "trial (Membuat Akun Trial)"  | tee -a log-install.txt
-echo "hapus (Menghapus Akun SSH)"  | tee -a log-install.txt
-echo "cek (Cek User Login)"  | tee -a log-install.txt
-echo "member (Cek Member SSH)"  | tee -a log-install.txt
-echo "userlimit (Limit login Dropbear)"  | tee -a log-install.txt
+echo "menu         (Menampilkan daftar perintah yang tersedia)"  | tee -a log-install.txt
+echo "usernew      (Membuat Akun SSH)"  | tee -a log-install.txt
+echo "trial        (Membuat Akun Trial)"  | tee -a log-install.txt
+echo "hapus        (Menghapus Akun SSH)"  | tee -a log-install.txt
+echo "cek          (Cek User Login)"  | tee -a log-install.txt
+echo "member       (Cek Member SSH)"  | tee -a log-install.txt
+echo "autokill     (Autokill user expired dan multilogin)"  | tee -a log-install.txt
+echo "userlimit    (Limit login Dropbear)"  | tee -a log-install.txt
 echo "userlimitssh (Limit login SSHD)"  | tee -a log-install.txt
-echo "resvis (Restart Service dropbear, webmin, squid3, openvpn dan ssh)"  | tee -a log-install.txt
-echo "reboot (Reboot VPS)"  | tee -a log-install.txt
-echo "speedtest (Speedtest VPS)"  | tee -a log-install.txt
-echo "info (Menampilkan Informasi Sistem)"  | tee -a log-install.txt
-echo "about (Informasi tentang script auto install)"  | tee -a log-install.txt
+echo "userexpired  (Cek user expired)"  | tee -a log-install.txt
+echo "resvis       (Restart Service dropbear, webmin, squid3, openvpn dan ssh)"  | tee -a log-install.txt
+echo "reboot       (Reboot VPS)"  | tee -a log-install.txt
+echo "speedtest    (Speedtest VPS)"  | tee -a log-install.txt
+echo "info         (Menampilkan Informasi Sistem)"  | tee -a log-install.txt
+echo "about        (Informasi tentang script auto install)"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Fitur lain"  | tee -a log-install.txt
 echo "----------"  | tee -a log-install.txt
