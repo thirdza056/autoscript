@@ -1,5 +1,4 @@
 #!/bin/bash
-#Script untuk menghapus user SSH & OpenVPN
 
 read -p "Nama user SSH yang akan dihapus : " Pengguna
 
