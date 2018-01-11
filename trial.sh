@@ -1,7 +1,4 @@
 #!/bin/bash
-#Script auto create trial user SSH
-#yg akan expired setelah 1 hari
-#modified Aikan Amir
 
 IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 
