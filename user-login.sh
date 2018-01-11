@@ -1,10 +1,4 @@
 #!/bin/bash
-#
-# Script Copyright Area 51 Reborn
-:
-# Modified by Aiman Amir
-# ===============================
-
 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 
