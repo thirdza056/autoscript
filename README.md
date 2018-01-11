@@ -27,4 +27,4 @@ Proses install ambil masa lebih kurang 5-6 minit untuk siap.
 Telegram: [@NamiaKai](https://t.me/namiakai)
 
 # Donate
-Paypal: [paypal.me/aimanamir](paypal.me/aimanamir)
+Paypal: [aimanamir](https://paypal.me/aimanamir)
