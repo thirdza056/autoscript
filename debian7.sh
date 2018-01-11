@@ -160,8 +160,6 @@ wget -O usernew "https://raw.githubusercontent.com/aimanamir/autoscript/master/u
 wget -O trial "https://raw.githubusercontent.com/aimanamir/autoscript/master/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/aimanamir/autoscript/master/hapus.sh"
 wget -O cek "https://raw.githubusercontent.com/aimanamir/autoscript/master/user-login.sh"
-wget -O autokill "https://raw.githubusercontent.com/aimanamir/autoscript/master/autokill.sh"
-wget -O userexpired "https://raw.githubusercontent.com/aimanamir/autoscript/master/userexpired.sh"
 wget -O userlimit "https://raw.githubusercontent.com/aimanamir/autoscript/master/userlimit.sh"
 wget -O userlimitssh "https://raw.githubusercontent.com/aimanamir/autoscript/master/userlimitssh.sh"
 wget -O member "https://raw.githubusercontent.com/aimanamir/autoscript/master/user-list.sh"
@@ -177,14 +175,12 @@ chmod +x usernew
 chmod +x trial
 chmod +x hapus
 chmod +x cek
-chmod +x autokill
 chmod +x member
 chmod +x resvis
 chmod +x speedtest
 chmod +x info
 chmod +x userlimit
 chmod +x userlimitssh
-chmod +x userexpired
 chmod +x about
 
 # finishing
@@ -223,10 +219,8 @@ echo "trial        (Membuat Akun Trial)"  | tee -a log-install.txt
 echo "hapus        (Menghapus Akun SSH)"  | tee -a log-install.txt
 echo "cek          (Cek User Login)"  | tee -a log-install.txt
 echo "member       (Cek Member SSH)"  | tee -a log-install.txt
-echo "autokill     (Autokill user expired dan multilogin)"  | tee -a log-install.txt
 echo "userlimit    (Limit login Dropbear)"  | tee -a log-install.txt
 echo "userlimitssh (Limit login SSHD)"  | tee -a log-install.txt
-echo "userexpired  (Cek user expired)"  | tee -a log-install.txt
 echo "resvis       (Restart Service dropbear, webmin, squid3, openvpn dan ssh)"  | tee -a log-install.txt
 echo "reboot       (Reboot VPS)"  | tee -a log-install.txt
 echo "speedtest    (Speedtest VPS)"  | tee -a log-install.txt
