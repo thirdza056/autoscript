@@ -74,7 +74,7 @@ exit 0
 *)
   echo " gunakan perintah userlimitssh 1 untuk limit 1 login saja"
   echo " atau userlimitssh 2  untuk melimit max 2 login"
-  echo " jika ada kritik saran soal program ini pm mikodemos"     
+  echo " jika ada kritik saran soal program ini pm Aiman Amir"     
 rm -f /tmp/pid
 rm -f /tmp/pid2
 rm -f /tmp/pids
