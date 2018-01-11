@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Original script by fornesia, rzengineer and fawzya
-# Mod by Bustami Arifin
+# Original script by Area 51 Reborn
+# Modified by Aiman Amir
 # ==================================================
 
 # initialisasi var
@@ -20,8 +20,8 @@ sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 # install wget and curl
 apt-get update;apt-get -y install wget curl;
 
-# set time GMT +7
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+# set time GMT +8
+ln -fs /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -111,6 +111,26 @@ echo "/usr/sbin/nologin" >> /etc/shells
 service ssh restart
 service dropbear restart
 
+# blockir torrent
+iptables -A OUTPUT -p tcp --dport 6881:6889 -j DROP
+iptables -A OUTPUT -p udp --dport 1024:65534 -j DROP
+iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
+iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
+iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
+iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
+iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
+iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
+iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
+iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
+iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
+iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
+iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
+
+
+# install fail2ban
+apt-get -y install fail2ban;
+service fail2ban restart
+
 # install squid3
 cd
 apt-get -y install squid3
@@ -126,6 +146,13 @@ apt-get -y -f install;
 rm /root/webmin-current.deb
 service webmin restart
 
+# install ddos deflate
+apt-get -y install dnsutils dsniff
+wget https://raw.githubusercontent.com/rasta-team/MyVPS/master/ddos-deflate-master.zip
+unzip ddos-deflate-master.zip
+cd ddos-deflate-master
+./install.sh
+
 # download script
 cd /usr/bin
 wget -O menu "http://vira.cf/menu.sh"
@@ -133,6 +160,8 @@ wget -O usernew "http://vira.cf/usernew.sh"
 wget -O trial "http://vira.cf/trial.sh"
 wget -O hapus "http://vira.cf/hapus.sh"
 wget -O cek "http://vira.cf/user-login.sh"
+wget -O userlimit "https://raw.githubusercontent.com/cyber4rt/debian7/master/userlimit.sh"
+wget -O userlimitssh "https://raw.githubusercontent.com/cyber4rt/debian7/master/userlimitssh.sh"
 wget -O member "http://vira.cf/user-list.sh"
 wget -O resvis "http://vira.cf/resvis.sh"
 wget -O speedtest "http://vira.cf/speedtest_cli.py"
@@ -150,6 +179,8 @@ chmod +x member
 chmod +x resvis
 chmod +x speedtest
 chmod +x info
+chmod +x userlimit
+chmid +x userlimitssh
 chmod +x about
 
 # finishing
@@ -161,6 +192,7 @@ service cron restart
 service ssh restart
 service dropbear restart
 service squid3 restart
+service fail2ban restart
 service webmin restart
 rm -rf ~/.bash_history && history -c
 echo "unset HISTFILE" >> /etc/profile
@@ -187,6 +219,8 @@ echo "trial (Membuat Akun Trial)"  | tee -a log-install.txt
 echo "hapus (Menghapus Akun SSH)"  | tee -a log-install.txt
 echo "cek (Cek User Login)"  | tee -a log-install.txt
 echo "member (Cek Member SSH)"  | tee -a log-install.txt
+echo "userlimit (Limit login Dropbear)"  | tee -a log-install.txt
+echo "userlimitssh (Limit login SSHD)"  | tee -a log-install.txt
 echo "resvis (Restart Service dropbear, webmin, squid3, openvpn dan ssh)"  | tee -a log-install.txt
 echo "reboot (Reboot VPS)"  | tee -a log-install.txt
 echo "speedtest (Speedtest VPS)"  | tee -a log-install.txt
@@ -196,11 +230,11 @@ echo ""  | tee -a log-install.txt
 echo "Fitur lain"  | tee -a log-install.txt
 echo "----------"  | tee -a log-install.txt
 echo "Webmin   : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "Timezone : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "Timezone : Asia/Kuala Lumpur (GMT +8)"  | tee -a log-install.txt
 echo "IPv6     : [off]"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "Original Script by Fornesia, Rzengineer & Fawzya"  | tee -a log-install.txt
-echo "Modified by Bustami Arifin"  | tee -a log-install.txt
+echo "Original Script by Area 51 Reborn"  | tee -a log-install.txt
+echo "Modified by Aiman Amir"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Log Instalasi --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
