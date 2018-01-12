@@ -23,6 +23,10 @@ Copy paste script dibawah ke dalam VPS korang dan tekan 'ENTER'.
 
 Proses install ambil masa lebih kurang 5-6 minit untuk siap.
 
+# Suppo
+Kalau ad sebarang masalah dgn script ni, sila 'Pull Request'.
+Atau boleh pm aq dlm Telegram. Tq.
+
 # Contact me
 Telegram: [@NamiaKai](https://t.me/namiakai)
 
