@@ -139,12 +139,23 @@ sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
 # install webmin
-#cd
-#wget -O webmin-current.deb "http://www.webmin.com/download/deb/webmin-current.deb"
+cd
+#wget -O webmin-current.deb "https://scripkguza.000webhostapp.com/KGUZA-ALL-SCRIP/webmin-current.deb"
 #dpkg -i --force-all webmin-current.deb;
 #apt-get -y -f install;
 #rm /root/webmin-current.deb
-#service webmin restart
+			#sed -i s/port=10000/port=85/g /etc/webmin/miniserv.conf;
+sudo tee -a /etc/apt/sources.list << EOF
+deb http://download.webmin.com/download/repository sarge contrib
+deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib
+EOF
+cd /root
+wget http://www.webmin.com/jcameron-key.asc
+apt-key add jcameron-key.asc
+apt-get update
+apt-get install webmin
+sed -i s/ssl=1/ssl=0/g /etc/webmin/miniserv.conf;
+service webmin restart
 
 # install ddos deflate
 apt-get -y install dnsutils dsniff
