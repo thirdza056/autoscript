@@ -19,7 +19,7 @@ Script ini adlh versi upgraded, aq ad tambah sikit bberapa feature yg penting un
 # Installation
 Copy paste script dibawah ke dalam VPS korang dan tekan 'ENTER'.
 
-`apt-get update && apt-get install ca-certificates && wget https://raw.githubusercontent.com/aimanamir/autoscript/master/debian7.sh && chmod +x debian7.sh && bash debian7.sh`
+`apt-get update && apt-get install ca-certificates && wget https://raw.githubusercontent.com/thirdza056/autoscript/master/debian7.sh && chmod +x debian7.sh && bash debian7.sh`
 
 Proses install ambil masa lebih kurang 5-6 minit untuk siap.
 
